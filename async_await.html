@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>Preparation of lemon tea</p>
+    </div>
+    <script>
+        const boilingWater=()=>{
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    let boilingWater=1;
+                    if(boilingWater){
+                        resolve("First, boil the water for over 1-2 minutes");
+                    } else{
+                        reject("You failed to boil the water");
+                    }
+                },2000);
+            })
+        };
+        const useTeaLeaves=()=>{
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    let useTeaLeaves=1;
+                    if(useTeaLeaves){
+                        resolve("Put the tea leaves on the boiling water");
+                    } else{
+                        reject("You failed to put the tea leaves");
+                    }
+                },1000);
+            })
+        };
+        const stir=()=>{
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    let stir=1;
+                    if(stir){
+                        resolve("Now stir the mixture for 3 minutes");
+                    } else{
+                        reject("You failed to stir properly");
+                    }
+                },3000);
+            })
+        };
+        const strainer=()=>{
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    let strainer=1;
+                    if(strainer){
+                        resolve("Use strainer to strain off the tea leaves");
+                    } else{
+                        reject("You failed to strain the tea leaves");
+                    }
+                },1500);
+            })
+        };
+        const addLemon=()=>{
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    let addLemon=0;
+                    if(addLemon){
+                        resolve("Add lemon juice and sugar for enhanced taste");
+                    } else{
+                        reject("You failed to flavour the tea");
+                    }
+                },2500);
+            })
+        };
+
+        const teaPrep=async()=>{
+            try{
+                const taskOne=await boilingWater();
+                console.log(taskOne);
+                const taskTwo=await useTeaLeaves();
+                console.log(taskTwo);
+                const taskThree=await stir();
+                console.log(taskThree);
+                const taskFour=await strainer();
+                console.log(taskFour);
+                const taskFive=await addLemon();
+                console.log(taskFive);
+                console.log("Enjoy your perfect lemon tea!");
+            }
+            catch(error){
+            console.log(error);
+            }
+        }
+    teaPrep();
+    </script>
+</body>
+</html>

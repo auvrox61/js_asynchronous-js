@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+            text-align: center;
+            font-size: medium;
+        }
+        .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+        .idea{
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Click the button to get random cat facts</h3>
+        <button class="btn" onclick="boredom()">Click Me to get smarter</button>
+        <p class="idea">The facts will appear here</p>
+    </div>
+    <script>
+        const boredom=async()=>{
+            try{
+                const response=await fetch("https://catfact.ninja/fact");
+                const json=await response.json();
+                document.querySelector(".idea").textContent=json.fact
+            }
+            catch(error){
+                document.querySelector(".idea").textContent="Failed to fetch any idea. Try again!"
+            }
+        }
+    </script>
+</body>
+</html>
