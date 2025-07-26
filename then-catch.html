@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <p>Then/Catch</p>
+    </div>
+    <script>
+        const promiseOne=new Promise((resolve,reject)=>{
+            resolve("Promise 1 has been compiled successfully");
+        })
+        const promiseTwo=new Promise((resolve,reject)=>{
+            reject("Promise 2 has faced some problems. Unlucky!");
+        })
+        const promiseThree=new Promise((resolve,reject)=>{
+            resolve("Promise 3 has been compiled successfully");
+        })
+
+        promiseOne
+        .then((value)=>{
+            console.log(value);
+            return promiseTwo;
+        })
+        .catch((error)=>{
+            console.log(error);
+            return promiseThree;
+        })
+        .then((value)=>{
+            console.log(value);
+        })
+    </script>
+</body>
+</html>

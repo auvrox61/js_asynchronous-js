@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p>Promise</p>
+    </div>
+    <script>
+        const promise = new Promise((resolve, reject) => {
+            const doesWork = 0;
+            if (doesWork) {
+                resolve("The connection works well");
+            } else {
+                reject("Oops! Something went wrong");
+            }
+        })
+
+        console.log(promise);
+    </script>
+</body>
+
+</html>

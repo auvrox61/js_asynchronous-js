@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>Promise.All()</p>
+    </div>
+    <script>
+        const promiseOne=new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Promise 1 has been compiled successfully");
+            },2000)
+        })
+        const promiseTwo=new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Promise 2 has been compiled successfully");
+            },2000)
+        })
+        const promiseThree=new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                reject("Promise 3 has been rejected");
+            },2000)
+        })
+        const promiseFour=new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("Promise 4 has been compiled successfully");
+            },2000)
+        })
+
+        Promise.all([promiseOne,promiseTwo,promiseThree,promiseFour])
+        .then((data)=>{
+            console.log(data[0],data[1],data[2],data[3]);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    </script>
+</body>
+</html>
